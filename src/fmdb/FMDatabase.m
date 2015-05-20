@@ -136,7 +136,7 @@
     
     int err = sqlite3_open([self sqlitePath], &_db );
     if(err != SQLITE_OK) {
-        [self log:SFLogLevelDebug format:@"error opening!: %d", err];
+        [self log:SFLogLevelError format:@"error opening!: %d", err];
         return NO;
     }
     
@@ -157,7 +157,7 @@
 
     int err = sqlite3_open_v2([self sqlitePath], &_db, flags, NULL /* Name of VFS module to use */);
     if(err != SQLITE_OK) {
-        [self log:SFLogLevelDebug format:@"error opening!: %d", err];
+        [self log:SFLogLevelError format:@"error opening!: %d", err];
         return NO;
     }
     
@@ -199,7 +199,7 @@
             }
         }
         else if (SQLITE_OK != rc) {
-            [self log:SFLogLevelDebug format:@"error closing!: %d", rc];
+            [self log:SFLogLevelError format:@"error closing!: %d", rc];
         }
     }
     while (retry);
@@ -234,7 +234,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
         int requestedSleepInMillseconds = arc4random_uniform(50) + 50;
         int actualSleepInMilliseconds = sqlite3_sleep(requestedSleepInMillseconds);
         if (actualSleepInMilliseconds != requestedSleepInMillseconds) {
-            [self log:SFLogLevelDebug format:@"WARNING: Requested sleep of %i milliseconds, but SQLite returned %i. Maybe SQLite wasn't built with HAVE_USLEEP=1?", requestedSleepInMillseconds, actualSleepInMilliseconds];
+            [self log:SFLogLevelwarning format:@"WARNING: Requested sleep of %i milliseconds, but SQLite returned %i. Maybe SQLite wasn't built with HAVE_USLEEP=1?", requestedSleepInMillseconds, actualSleepInMilliseconds];
         }
         return 1;
     }
@@ -362,8 +362,8 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
     int rc = sqlite3_rekey(_db, [keyData bytes], (int)[keyData length]);
     
     if (rc != SQLITE_OK) {
-        [self log:SFLogLevelDebug format:@"error on rekey: %d", rc];
-        [self log:SFLogLevelDebug format:@"%@", [self lastErrorMessage]];
+        [self log:SFLogLevelError format:@"error on rekey: %d", rc];
+        [self log:SFLogLevelError format:@"%@", [self lastErrorMessage]];
     }
     
     return (rc == SQLITE_OK);
@@ -762,7 +762,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
         
         if (SQLITE_OK != rc) {
             if (_logsErrors) {
-                [self log:SFLogLevelDebug format:@"DB Error: %d \"%@\"", [self lastErrorCode], [self lastErrorMessage]];
+                [self log:SFLogLevelError format:@"DB Error: %d \"%@\"", [self lastErrorCode], [self lastErrorMessage]];
                 [self log:SFLogLevelDebug format:@"DB Query: %@", sql];
                 [self log:SFLogLevelDebug format:@"DB Path: %@", _databasePath];
             }
@@ -841,7 +841,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
     }
     
     if (idx != queryCount) {
-        [self log:SFLogLevelDebug format:@"Error: the bind count is not correct for the # of variables (executeQuery)"];
+        [self log:SFLogLevelError format:@"Error: the bind count is not correct for the # of variables (executeQuery)"];
         sqlite3_finalize(pStmt);
         _isExecutingStatement = NO;
         return nil;
@@ -939,7 +939,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
         
         if (SQLITE_OK != rc) {
             if (_logsErrors) {
-                [self log:SFLogLevelDebug format:@"DB Error: %d \"%@\"", [self lastErrorCode], [self lastErrorMessage]];
+                [self log:SFLogLevelError format:@"DB Error: %d \"%@\"", [self lastErrorCode], [self lastErrorMessage]];
                 [self log:SFLogLevelDebug format:@"DB Query: %@", sql];
                 [self log:SFLogLevelDebug format:@"DB Path: %@", _databasePath];
             }
@@ -1024,7 +1024,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
     
     
     if (idx != queryCount) {
-        [self log:SFLogLevelDebug format:@"Error: the bind count (%d) is not correct for the # of variables in the query (%d) (%@) (executeUpdate)", idx, queryCount, sql];
+        [self log:SFLogLevelError format:@"Error: the bind count (%d) is not correct for the # of variables in the query (%d) (%@) (executeUpdate)", idx, queryCount, sql];
         sqlite3_finalize(pStmt);
         _isExecutingStatement = NO;
         return NO;
@@ -1041,14 +1041,14 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
     }
     else if (SQLITE_ERROR == rc) {
         if (_logsErrors) {
-            [self log:SFLogLevelDebug format:@"Error calling sqlite3_step (%d: %s) SQLITE_ERROR", rc, sqlite3_errmsg(_db)];
+            [self log:SFLogLevelError format:@"Error calling sqlite3_step (%d: %s) SQLITE_ERROR", rc, sqlite3_errmsg(_db)];
             [self log:SFLogLevelDebug format:@"DB Query: %@", sql];
         }
     }
     else if (SQLITE_MISUSE == rc) {
         // uh oh.
         if (_logsErrors) {
-            [self log:SFLogLevelDebug format:@"Error calling sqlite3_step (%d: %s) SQLITE_MISUSE", rc, sqlite3_errmsg(_db)];
+            [self log:SFLogLevelError format:@"Error calling sqlite3_step (%d: %s) SQLITE_MISUSE", rc, sqlite3_errmsg(_db)];
             [self log:SFLogLevelDebug format:@"DB Query: %@", sql];
         }
     }
@@ -1168,7 +1168,7 @@ int FMDBExecuteBulkSQLCallback(void *theBlockAsVoid, int columns, char **values,
     rc = sqlite3_exec([self sqliteHandle], [sql UTF8String], block ? FMDBExecuteBulkSQLCallback : nil, (__bridge void *)(block), &errmsg);
     
     if (errmsg && [self logsErrors]) {
-        [self log:SFLogLevelDebug format:@"Error inserting batch: %s", errmsg];
+        [self log:SFLogLevelError format:@"Error inserting batch: %s", errmsg];
         sqlite3_free(errmsg);
     }
 

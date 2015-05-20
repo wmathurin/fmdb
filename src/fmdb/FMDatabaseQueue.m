@@ -150,7 +150,7 @@ static const void * const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey
         block(db);
         
         if ([db hasOpenResultSets]) {
-            [self log:SFLogLevelDebug format:@"Warning: there is at least one open result set around after performing [FMDatabaseQueue inDatabase:]"];
+            [self log:SFLogLevelWarning format:@"Warning: there is at least one open result set around after performing [FMDatabaseQueue inDatabase:]"];
             
 #if defined(DEBUG) && DEBUG
             NSSet *openSetCopy = FMDBReturnAutoreleased([[db valueForKey:@"_openResultSets"] copy]);

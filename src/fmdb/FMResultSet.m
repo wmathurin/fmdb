@@ -109,7 +109,7 @@
         return FMDBReturnAutoreleased([dict copy]);
     }
     else {
-        [self log:SFLogLevelDebug format:@"Warning: There seem to be no columns in this set."];
+        [self log:SFLogLevelWarning format:@"Warning: There seem to be no columns in this set."];
     }
     
     return nil;
@@ -137,7 +137,7 @@
         return dict;
     }
     else {
-        [self log:SFLogLevelDebug format:@"Warning: There seem to be no columns in this set."];
+        [self log:SFLogLevelWarning format:@"Warning: There seem to be no columns in this set."];
     }
     
     return nil;
@@ -165,14 +165,14 @@
         // all is well, let's return.
     }
     else if (SQLITE_ERROR == rc) {
-        [self log:SFLogLevelDebug format:@"Error calling sqlite3_step (%d: %s) rs", rc, sqlite3_errmsg([_parentDB sqliteHandle])];
+        [self log:SFLogLevelError format:@"Error calling sqlite3_step (%d: %s) rs", rc, sqlite3_errmsg([_parentDB sqliteHandle])];
         if (outErr) {
             *outErr = [_parentDB lastError];
         }
     }
     else if (SQLITE_MISUSE == rc) {
         // uh oh.
-        [self log:SFLogLevelDebug format:@"Error calling sqlite3_step (%d: %s) rs", rc, sqlite3_errmsg([_parentDB sqliteHandle])];
+        [self log:SFLogLevelError format:@"Error calling sqlite3_step (%d: %s) rs", rc, sqlite3_errmsg([_parentDB sqliteHandle])];
         if (outErr) {
             if (_parentDB) {
                 *outErr = [_parentDB lastError];
@@ -215,7 +215,7 @@
         return [n intValue];
     }
     
-    [self log:SFLogLevelDebug format:@"Warning: I could not find the column named '%@'.", columnName];
+    [self log:SFLogLevelWarning format:@"Warning: I could not find the column named '%@'.", columnName];
     
     return -1;
 }
