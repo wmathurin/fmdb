@@ -454,7 +454,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
     
     if (!_db) {
             
-        [self log:SFLogLevelDebug format:@"The FMDatabase %@ is not open.", self];
+        [self log:SFLogLevelError format:@"The FMDatabase %@ is not open.", self];
         
     #ifndef NS_BLOCK_ASSERTIONS
         if (_crashOnErrors) {
@@ -1055,7 +1055,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
     else {
         // wtf?
         if (_logsErrors) {
-            [self log:SFLogLevelDebug format:@"Unknown error calling sqlite3_step (%d: %s) eu", rc, sqlite3_errmsg(_db)];
+            [self log:SFLogLevelError format:@"Unknown error calling sqlite3_step (%d: %s) eu", rc, sqlite3_errmsg(_db)];
             [self log:SFLogLevelDebug format:@"DB Query: %@", sql];
         }
     }
@@ -1089,7 +1089,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
     
     if (closeErrorCode != SQLITE_OK) {
         if (_logsErrors) {
-            [self log:SFLogLevelDebug format:@"Unknown error finalizing or resetting statement (%d: %s)", closeErrorCode, sqlite3_errmsg(_db)];
+            [self log:SFLogLevelError format:@"Unknown error finalizing or resetting statement (%d: %s)", closeErrorCode, sqlite3_errmsg(_db)];
             [self log:SFLogLevelDebug format:@"DB Query: %@", sql];
         }
     }

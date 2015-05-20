@@ -188,7 +188,7 @@
     }
     else {
         // wtf?
-        [self log:SFLogLevelDebug format:@"Unknown error calling sqlite3_step (%d: %s) rs", rc, sqlite3_errmsg([_parentDB sqliteHandle])];
+        [self log:SFLogLevelError format:@"Unknown error calling sqlite3_step (%d: %s) rs", rc, sqlite3_errmsg([_parentDB sqliteHandle])];
         if (outErr) {
             *outErr = [_parentDB lastError];
         }
