@@ -8,7 +8,7 @@
 
 #import "FMDatabaseQueue.h"
 #import "FMDatabase.h"
-#import "SFLogger.h"
+#import <SalesforceSDKCore/SFLogger.h>
 
 /*
  
