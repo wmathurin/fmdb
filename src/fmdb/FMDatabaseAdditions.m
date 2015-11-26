@@ -9,6 +9,7 @@
 #import "FMDatabase.h"
 #import "FMDatabaseAdditions.h"
 #import "TargetConditionals.h"
+#import "SFLogger.h"
 
 @interface FMDatabase (PrivateStuff)
 - (FMResultSet *)executeQuery:(NSString *)sql withArgumentsInArray:(NSArray*)arrayArgs orDictionary:(NSDictionary *)dictionaryArgs orVAList:(va_list)args;

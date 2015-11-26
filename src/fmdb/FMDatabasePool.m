@@ -8,6 +8,7 @@
 
 #import "FMDatabasePool.h"
 #import "FMDatabase.h"
+#import "SFLogger.h"
 
 @interface FMDatabasePool()
 

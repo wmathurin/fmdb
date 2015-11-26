@@ -1,6 +1,7 @@
 #import "FMResultSet.h"
 #import "FMDatabase.h"
 #import "unistd.h"
+#import "SFLogger.h"
 
 @interface FMDatabase ()
 - (void)resultSetDidClose:(FMResultSet *)resultSet;
