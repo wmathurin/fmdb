@@ -1,5 +1,6 @@
 #import "FMDatabase.h"
 #import "unistd.h"
+#import <SalesforceSDKCore/SFLogger.h>
 #import <objc/runtime.h>
 
 @interface FMDatabase ()

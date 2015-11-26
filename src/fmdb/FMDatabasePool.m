@@ -8,6 +8,7 @@
 
 #import "FMDatabasePool.h"
 #import "FMDatabase.h"
+#import <SalesforceSDKCore/SFLogger.h>
 
 @interface FMDatabasePool()
 
