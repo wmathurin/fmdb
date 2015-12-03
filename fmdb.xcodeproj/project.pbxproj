@@ -45,7 +45,8 @@
 		CCC24EC20A13E34D00A6D3E3 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC24EBB0A13E34D00A6D3E3 /* FMDatabase.m */; };
 		CCC24EC50A13E34D00A6D3E3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC24EBE0A13E34D00A6D3E3 /* main.m */; };
 		CCC24EC70A13E34D00A6D3E3 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC24EC00A13E34D00A6D3E3 /* FMResultSet.m */; };
-		CE0021CE1C066CF80079DCA4 /* libSalesforceSDKCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0021C51C066C1F0079DCA4 /* libSalesforceSDKCore.a */; };
+		CE0021CE1C066CF80079DCA4 /* SalesforceSDKCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0021C51C066C1F0079DCA4 /* SalesforceSDKCore.framework */; };
+		CE0AB0CC1C10F46200BFAEED /* SalesforceSDKCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0021C51C066C1F0079DCA4 /* SalesforceSDKCore.framework */; };
 		CE6113641C06A01700D5A940 /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = CCC24EBA0A13E34D00A6D3E3 /* FMDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE90C1041C06A7F800CC660F /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 8314AF3218CD73D600EC0E25 /* FMDB.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE90C1051C06A7F800CC660F /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = CCC24EBA0A13E34D00A6D3E3 /* FMDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -102,21 +103,21 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = CE0021BC1C066C1E0079DCA4 /* SalesforceSDKCore.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 8220B74B16D804CA00EC3921;
+			remoteGlobalIDString = CE4CE26A1C0E449C009F6029;
 			remoteInfo = SalesforceSDKCore;
 		};
 		CE0021CF1C066CFF0079DCA4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CE0021BC1C066C1E0079DCA4 /* SalesforceSDKCore.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 8220B74B16D804CA00EC3921;
+			remoteGlobalIDString = CE4CE26A1C0E449C009F6029;
 			remoteInfo = SalesforceSDKCore;
 		};
 		CE0021D11C066D080079DCA4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CE0021BC1C066C1E0079DCA4 /* SalesforceSDKCore.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 8220B74B16D804CA00EC3921;
+			remoteGlobalIDString = CE4CE26A1C0E449C009F6029;
 			remoteInfo = SalesforceSDKCore;
 		};
 /* End PBXContainerItemProxy section */
@@ -202,6 +203,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE0AB0CC1C10F46200BFAEED /* SalesforceSDKCore.framework in Frameworks */,
 				6290CBB7188FE836009790F8 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,7 +222,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE0021CE1C066CF80079DCA4 /* libSalesforceSDKCore.a in Frameworks */,
+				CE0021CE1C066CF80079DCA4 /* SalesforceSDKCore.framework in Frameworks */,
 				BF5D042918417159008C5AA9 /* libsqlite3.dylib in Frameworks */,
 				BF5D04281841702E008C5AA9 /* libFMDB.a in Frameworks */,
 				BF5D041918416BB2008C5AA9 /* XCTest.framework in Frameworks */,
@@ -403,7 +405,7 @@
 		CE0021BD1C066C1E0079DCA4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CE0021C51C066C1F0079DCA4 /* libSalesforceSDKCore.a */,
+				CE0021C51C066C1F0079DCA4 /* SalesforceSDKCore.framework */,
 				CE0021C71C066C1F0079DCA4 /* SalesforceSDKCoreTests.xctest */,
 				CE0021C91C066C1F0079DCA4 /* SalesforceSDKCoreTestApp.app */,
 				CE0021CB1C066C1F0079DCA4 /* SalesforceSDKCoreTestAppTests.xctest */,
@@ -560,10 +562,10 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		CE0021C51C066C1F0079DCA4 /* libSalesforceSDKCore.a */ = {
+		CE0021C51C066C1F0079DCA4 /* SalesforceSDKCore.framework */ = {
 			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libSalesforceSDKCore.a;
+			fileType = wrapper.framework;
+			path = SalesforceSDKCore.framework;
 			remoteRef = CE0021C41C066C1F0079DCA4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -818,6 +820,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CFLAGS = "-DSQLITE_HAS_CODEC";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "Headers/${PROJECT_NAME}";
@@ -844,6 +847,7 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CFLAGS = "-DSQLITE_HAS_CODEC";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "Headers/${PROJECT_NAME}";
