@@ -228,7 +228,7 @@
 		CCC24EBF0A13E34D00A6D3E3 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = src/fmdb/FMResultSet.h; sourceTree = SOURCE_ROOT; };
 		CCC24EC00A13E34D00A6D3E3 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = src/fmdb/FMResultSet.m; sourceTree = SOURCE_ROOT; };
 		CE0021BC1C066C1E0079DCA4 /* SalesforceSDKCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SalesforceSDKCore.xcodeproj; path = ../../libs/SalesforceSDKCore/SalesforceSDKCore.xcodeproj; sourceTree = "<group>"; };
-		CEA884C11C1A24B1008D871B /* libFMDB-IOS-Static.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libFMDB-IOS-Static.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEA884C11C1A24B1008D871B /* libFMDB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFMDB.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A740A11A7046330058EBEE /* FMDatabaseFTS3WithModuleNameTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseFTS3WithModuleNameTests.m; sourceTree = "<group>"; };
 		EE4290EF12B42F870088BD94 /* libFMDB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFMDB.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE42910C12B42FFA0088BD94 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -329,7 +329,7 @@
 				EE4290EF12B42F870088BD94 /* libFMDB.a */,
 				BF5D041618416BB2008C5AA9 /* Tests.xctest */,
 				6290CBB5188FE836009790F8 /* libFMDB-IOS.a */,
-				CEA884C11C1A24B1008D871B /* libFMDB-IOS-Static.a */,
+				CEA884C11C1A24B1008D871B /* libFMDB.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -576,7 +576,7 @@
 			);
 			name = "FMDB-IOS-Static";
 			productName = "FMDB-IOS";
-			productReference = CEA884C11C1A24B1008D871B /* libFMDB-IOS-Static.a */;
+			productReference = CEA884C11C1A24B1008D871B /* libFMDB.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		EE4290EE12B42F870088BD94 /* FMDB */ = {
@@ -1062,7 +1062,7 @@
 				OTHER_CFLAGS = "-DSQLITE_HAS_CODEC";
 				OTHER_LDFLAGS = "-ObjC";
 				PRIVATE_HEADERS_FOLDER_PATH = "PrivateHeaders/$(PROJECT_NAME)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FMDB;
 				PUBLIC_HEADERS_FOLDER_PATH = "Headers/${PROJECT_NAME}";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1090,7 +1090,7 @@
 				OTHER_CFLAGS = "-DSQLITE_HAS_CODEC";
 				OTHER_LDFLAGS = "-ObjC";
 				PRIVATE_HEADERS_FOLDER_PATH = "PrivateHeaders/$(PROJECT_NAME)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = FMDB;
 				PUBLIC_HEADERS_FOLDER_PATH = "Headers/${PROJECT_NAME}";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
