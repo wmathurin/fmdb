@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		3354379C19E71096005661F3 /* FMResultSetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3354379B19E71096005661F3 /* FMResultSetTests.m */; };
+		40A145FE1BE5759400E5D35E /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = CCC24EBA0A13E34D00A6D3E3 /* FMDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		40A146001BE575D000E5D35E /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = CCC24EBA0A13E34D00A6D3E3 /* FMDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		40A146011BE575D600E5D35E /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = CCC24EBF0A13E34D00A6D3E3 /* FMResultSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		40A146021BE575DD00E5D35E /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = CC47A00D148581E9002CCDAB /* FMDatabaseQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		40A146031BE575E400E5D35E /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = CC50F2CC0DF9183600E4AAAE /* FMDatabaseAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		40A146041BE575EB00E5D35E /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = CC9E4EB713B31188005F9210 /* FMDatabasePool.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		40A146051BE6999800E5D35E /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 8314AF3218CD73D600EC0E25 /* FMDB.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		621721B21892BFE30006691F /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC24EBB0A13E34D00A6D3E3 /* FMDatabase.m */; };
 		621721B31892BFE30006691F /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC24EC00A13E34D00A6D3E3 /* FMResultSet.m */; };
 		621721B41892BFE30006691F /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = CC47A00E148581E9002CCDAB /* FMDatabaseQueue.m */; };
@@ -16,13 +23,36 @@
 		6290CBB7188FE836009790F8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6290CBB6188FE836009790F8 /* Foundation.framework */; };
 		67CB1E3019AD27D000A3CA7F /* FMDatabaseFTS3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 67CB1E2F19AD27D000A3CA7F /* FMDatabaseFTS3Tests.m */; };
 		8314AF3318CD73D600EC0E25 /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 8314AF3218CD73D600EC0E25 /* FMDB.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		83C73F131C326B9400FFC730 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC24EBB0A13E34D00A6D3E3 /* FMDatabase.m */; };
+		83C73F141C326B9400FFC730 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC24EC00A13E34D00A6D3E3 /* FMResultSet.m */; };
+		83C73F151C326B9400FFC730 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = CC47A00E148581E9002CCDAB /* FMDatabaseQueue.m */; };
+		83C73F161C326B9400FFC730 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CC50F2CB0DF9183600E4AAAE /* FMDatabaseAdditions.m */; };
+		83C73F171C326B9400FFC730 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = CC9E4EB813B31188005F9210 /* FMDatabasePool.m */; };
+		83C73F181C326BAB00FFC730 /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 8314AF3218CD73D600EC0E25 /* FMDB.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		83C73F191C326BAB00FFC730 /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = CCC24EBA0A13E34D00A6D3E3 /* FMDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		83C73F1A1C326BAB00FFC730 /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = CCC24EBF0A13E34D00A6D3E3 /* FMResultSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		83C73F1B1C326BAB00FFC730 /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = CC47A00D148581E9002CCDAB /* FMDatabaseQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		83C73F1C1C326BAB00FFC730 /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = CC50F2CC0DF9183600E4AAAE /* FMDatabaseAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		83C73F1D1C326BAB00FFC730 /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = CC9E4EB713B31188005F9210 /* FMDatabasePool.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		83C73F1E1C326BC100FFC730 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC24EBB0A13E34D00A6D3E3 /* FMDatabase.m */; };
+		83C73F1F1C326BC100FFC730 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC24EC00A13E34D00A6D3E3 /* FMResultSet.m */; };
+		83C73F201C326BC100FFC730 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = CC47A00E148581E9002CCDAB /* FMDatabaseQueue.m */; };
+		83C73F211C326BC100FFC730 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CC50F2CB0DF9183600E4AAAE /* FMDatabaseAdditions.m */; };
+		83C73F221C326BC100FFC730 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = CC9E4EB813B31188005F9210 /* FMDatabasePool.m */; };
+		83C73F231C326BD600FFC730 /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 8314AF3218CD73D600EC0E25 /* FMDB.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		83C73F241C326BD600FFC730 /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = CCC24EBA0A13E34D00A6D3E3 /* FMDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		83C73F251C326BD600FFC730 /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = CCC24EBF0A13E34D00A6D3E3 /* FMResultSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		83C73F261C326BD600FFC730 /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = CC47A00D148581E9002CCDAB /* FMDatabaseQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		83C73F271C326BD600FFC730 /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = CC50F2CC0DF9183600E4AAAE /* FMDatabaseAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		83C73F281C326BD600FFC730 /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = CC9E4EB713B31188005F9210 /* FMDatabasePool.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		83C73F2A1C326CE800FFC730 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C73F291C326CE800FFC730 /* libsqlite3.tbd */; };
+		83C73F2C1C326CF400FFC730 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C73F2B1C326CF400FFC730 /* libsqlite3.tbd */; };
+		83C73F2F1C326D2F00FFC730 /* FMDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C73F0B1C326ADA00FFC730 /* FMDB.framework */; };
 		8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB779EFE84155DC02AAC07 /* Foundation.framework */; };
 		8DD76F9F0486AA7600D96B5E /* fmdb.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* fmdb.1 */; };
 		BF5D041918416BB2008C5AA9 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF5D041818416BB2008C5AA9 /* XCTest.framework */; };
 		BF5D041F18416BB2008C5AA9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF5D041D18416BB2008C5AA9 /* InfoPlist.strings */; };
 		BF5D042118416BB2008C5AA9 /* FMDatabaseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5D042018416BB2008C5AA9 /* FMDatabaseTests.m */; };
-		BF5D04281841702E008C5AA9 /* libFMDB.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE4290EF12B42F870088BD94 /* libFMDB.a */; };
-		BF5D042918417159008C5AA9 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EE42910C12B42FFA0088BD94 /* libsqlite3.dylib */; };
 		BF940F5C18417D490001E077 /* FMDBTempDBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF940F5B18417D490001E077 /* FMDBTempDBTests.m */; };
 		BF940F5E18417DEA0001E077 /* FMDatabaseAdditionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF940F5D18417DEA0001E077 /* FMDatabaseAdditionsTests.m */; };
 		BFC152B118417F0D00605DF7 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CC50F2CB0DF9183600E4AAAE /* FMDatabaseAdditions.m */; };
@@ -45,98 +75,21 @@
 		CCC24EC20A13E34D00A6D3E3 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC24EBB0A13E34D00A6D3E3 /* FMDatabase.m */; };
 		CCC24EC50A13E34D00A6D3E3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC24EBE0A13E34D00A6D3E3 /* main.m */; };
 		CCC24EC70A13E34D00A6D3E3 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC24EC00A13E34D00A6D3E3 /* FMResultSet.m */; };
-		CE0021CE1C066CF80079DCA4 /* SalesforceSDKCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0021C51C066C1F0079DCA4 /* SalesforceSDKCore.framework */; };
-		CE6113641C06A01700D5A940 /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = CCC24EBA0A13E34D00A6D3E3 /* FMDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE90C1041C06A7F800CC660F /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 8314AF3218CD73D600EC0E25 /* FMDB.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE90C1051C06A7F800CC660F /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = CCC24EBA0A13E34D00A6D3E3 /* FMDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE90C1061C06A7F800CC660F /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = CCC24EBF0A13E34D00A6D3E3 /* FMResultSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE90C1071C06A7F800CC660F /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = CC47A00D148581E9002CCDAB /* FMDatabaseQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE90C1081C06A7F800CC660F /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = CC50F2CC0DF9183600E4AAAE /* FMDatabaseAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CE90C1091C06A7F800CC660F /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = CC9E4EB713B31188005F9210 /* FMDatabasePool.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEA884AE1C1A24B1008D871B /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC24EC00A13E34D00A6D3E3 /* FMResultSet.m */; };
-		CEA884AF1C1A24B1008D871B /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC24EBB0A13E34D00A6D3E3 /* FMDatabase.m */; };
-		CEA884B01C1A24B1008D871B /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = CC9E4EB813B31188005F9210 /* FMDatabasePool.m */; };
-		CEA884B11C1A24B1008D871B /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = CC47A00E148581E9002CCDAB /* FMDatabaseQueue.m */; };
-		CEA884B21C1A24B1008D871B /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CC50F2CB0DF9183600E4AAAE /* FMDatabaseAdditions.m */; };
-		CEA884B51C1A24B1008D871B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6290CBB6188FE836009790F8 /* Foundation.framework */; };
-		CEA884B81C1A24B1008D871B /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 8314AF3218CD73D600EC0E25 /* FMDB.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEA884B91C1A24B1008D871B /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = CCC24EBA0A13E34D00A6D3E3 /* FMDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEA884BA1C1A24B1008D871B /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = CC50F2CC0DF9183600E4AAAE /* FMDatabaseAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEA884BB1C1A24B1008D871B /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = CC9E4EB713B31188005F9210 /* FMDatabasePool.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEA884BC1C1A24B1008D871B /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = CC47A00D148581E9002CCDAB /* FMDatabaseQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEA884BD1C1A24B1008D871B /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = CCC24EBF0A13E34D00A6D3E3 /* FMResultSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4A740A21A7046330058EBEE /* FMDatabaseFTS3WithModuleNameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A740A11A7046330058EBEE /* FMDatabaseFTS3WithModuleNameTests.m */; };
 		EE42910512B42FBC0088BD94 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CC50F2CB0DF9183600E4AAAE /* FMDatabaseAdditions.m */; };
 		EE42910612B42FC30088BD94 /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = CC50F2CC0DF9183600E4AAAE /* FMDatabaseAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EE42910812B42FCC0088BD94 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC24EBB0A13E34D00A6D3E3 /* FMDatabase.m */; };
 		EE42910912B42FD00088BD94 /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = CCC24EBF0A13E34D00A6D3E3 /* FMResultSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EE42910A12B42FD20088BD94 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC24EC00A13E34D00A6D3E3 /* FMResultSet.m */; };
-		EE42910D12B42FFA0088BD94 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EE42910C12B42FFA0088BD94 /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		BF5D042318416BB2008C5AA9 /* PBXContainerItemProxy */ = {
+		83C73F2D1C326D2000FFC730 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = EE4290EE12B42F870088BD94;
-			remoteInfo = FMDB;
-		};
-		CE0021C41C066C1F0079DCA4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CE0021BC1C066C1E0079DCA4 /* SalesforceSDKCore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8220B74C16D804CA00EC3921;
-			remoteInfo = SalesforceSDKCore;
-		};
-		CE0021C61C066C1F0079DCA4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CE0021BC1C066C1E0079DCA4 /* SalesforceSDKCore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4F7EB4151BFFC88200768720;
-			remoteInfo = SalesforceSDKCoreTests;
-		};
-		CE0021C81C066C1F0079DCA4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CE0021BC1C066C1E0079DCA4 /* SalesforceSDKCore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 82D4642419C7C8170006BDFE;
-			remoteInfo = SalesforceSDKCoreTestApp;
-		};
-		CE0021CC1C066CE90079DCA4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CE0021BC1C066C1E0079DCA4 /* SalesforceSDKCore.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = CE4CE26A1C0E449C009F6029;
-			remoteInfo = SalesforceSDKCore;
-		};
-		CE0021CF1C066CFF0079DCA4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CE0021BC1C066C1E0079DCA4 /* SalesforceSDKCore.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = CE4CE26A1C0E449C009F6029;
-			remoteInfo = SalesforceSDKCore;
-		};
-		CE0021D11C066D080079DCA4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CE0021BC1C066C1E0079DCA4 /* SalesforceSDKCore.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = CE4CE26A1C0E449C009F6029;
-			remoteInfo = SalesforceSDKCore;
-		};
-		CEA884C71C1A24B1008D871B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CE0021BC1C066C1E0079DCA4 /* SalesforceSDKCore.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CEA8825F1C18F722008D871B;
-			remoteInfo = SalesforceSDKCoreStatic;
-		};
-		CEA884C91C1A24C1008D871B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CE0021BC1C066C1E0079DCA4 /* SalesforceSDKCore.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = CEA8825E1C18F722008D871B;
-			remoteInfo = SalesforceSDKCoreStatic;
+			remoteGlobalIDString = 83C73F0A1C326ADA00FFC730;
+			remoteInfo = "FMDB MacOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -160,15 +113,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
-		CEA884B61C1A24B1008D871B /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/$(PRODUCT_NAME)";
-			dstSubfolderSpec = 16;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -183,6 +127,12 @@
 		831DE6FD175B7C9C001F7317 /* README.markdown */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
 		832F502419EC4C6B0087DCBF /* FMDatabaseVariadic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FMDatabaseVariadic.swift; path = "src/extra/Swift extensions/FMDatabaseVariadic.swift"; sourceTree = "<group>"; };
 		8352D5AC1A73DCEA003A8E09 /* FMDatabaseAdditionsVariadic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FMDatabaseAdditionsVariadic.swift; path = "src/extra/Swift extensions/FMDatabaseAdditionsVariadic.swift"; sourceTree = "<group>"; };
+		83C73EFE1C326AB000FFC730 /* FMDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FMDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		83C73F0B1C326ADA00FFC730 /* FMDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FMDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		83C73F291C326CE800FFC730 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		83C73F2B1C326CF400FFC730 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/usr/lib/libsqlite3.tbd; sourceTree = DEVELOPER_DIR; };
+		83C73F301C326D8600FFC730 /* FMDB.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = FMDB.podspec; sourceTree = "<group>"; };
+		83C73F311C326FA600FFC730 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = src/fmdb/Info.plist; sourceTree = "<group>"; };
 		8DD76FA10486AA7600D96B5E /* fmdb */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = fmdb; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF5D041618416BB2008C5AA9 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF5D041818416BB2008C5AA9 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -219,11 +169,8 @@
 		CCC24EBE0A13E34D00A6D3E3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = src/sample/main.m; sourceTree = SOURCE_ROOT; };
 		CCC24EBF0A13E34D00A6D3E3 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = src/fmdb/FMResultSet.h; sourceTree = SOURCE_ROOT; };
 		CCC24EC00A13E34D00A6D3E3 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = src/fmdb/FMResultSet.m; sourceTree = SOURCE_ROOT; };
-		CE0021BC1C066C1E0079DCA4 /* SalesforceSDKCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SalesforceSDKCore.xcodeproj; path = ../../libs/SalesforceSDKCore/SalesforceSDKCore.xcodeproj; sourceTree = "<group>"; };
-		CEA884C11C1A24B1008D871B /* libFMDB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFMDB.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A740A11A7046330058EBEE /* FMDatabaseFTS3WithModuleNameTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseFTS3WithModuleNameTests.m; sourceTree = "<group>"; };
 		EE4290EF12B42F870088BD94 /* libFMDB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFMDB.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE42910C12B42FFA0088BD94 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +179,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				6290CBB7188FE836009790F8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83C73EFA1C326AB000FFC730 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83C73F2C1C326CF400FFC730 /* libsqlite3.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83C73F071C326ADA00FFC730 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83C73F2A1C326CE800FFC730 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,18 +212,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE0021CE1C066CF80079DCA4 /* SalesforceSDKCore.framework in Frameworks */,
-				BF5D042918417159008C5AA9 /* libsqlite3.dylib in Frameworks */,
-				BF5D04281841702E008C5AA9 /* libFMDB.a in Frameworks */,
+				83C73F2F1C326D2F00FFC730 /* FMDB.framework in Frameworks */,
 				BF5D041918416BB2008C5AA9 /* XCTest.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CEA884B31C1A24B1008D871B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CEA884B51C1A24B1008D871B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +221,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EE42910D12B42FFA0088BD94 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,17 +230,13 @@
 		08FB7794FE84155DC02AAC07 /* fmdb */ = {
 			isa = PBXGroup;
 			children = (
-				831DE6FD175B7C9C001F7317 /* README.markdown */,
-				CC8C138B0E3135C400FBE1E7 /* LICENSE.txt */,
-				CC8C138A0E3135C400FBE1E7 /* CHANGES_AND_TODO_LIST.txt */,
-				CC8C138C0E3135C400FBE1E7 /* CONTRIBUTORS.txt */,
-				08FB7795FE84155DC02AAC07 /* Source */,
+				83C73F301C326D8600FFC730 /* FMDB.podspec */,
 				C6859EA2029092E104C91782 /* Documentation */,
+				08FB7795FE84155DC02AAC07 /* Source */,
 				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
 				BF5D041A18416BB2008C5AA9 /* Tests */,
 				BF5D041718416BB2008C5AA9 /* Frameworks */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
-				EE42910C12B42FFA0088BD94 /* libsqlite3.dylib */,
 			);
 			name = fmdb;
 			sourceTree = "<group>";
@@ -320,7 +268,8 @@
 				EE4290EF12B42F870088BD94 /* libFMDB.a */,
 				BF5D041618416BB2008C5AA9 /* Tests.xctest */,
 				6290CBB5188FE836009790F8 /* libFMDB-IOS.a */,
-				CEA884C11C1A24B1008D871B /* libFMDB.a */,
+				83C73EFE1C326AB000FFC730 /* FMDB.framework */,
+				83C73F0B1C326ADA00FFC730 /* FMDB.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -351,6 +300,7 @@
 				CC50F2CB0DF9183600E4AAAE /* FMDatabaseAdditions.m */,
 				CC9E4EB713B31188005F9210 /* FMDatabasePool.h */,
 				CC9E4EB813B31188005F9210 /* FMDatabasePool.m */,
+				83C73F311C326FA600FFC730 /* Info.plist */,
 			);
 			name = fmdb;
 			sourceTree = "<group>";
@@ -385,7 +335,8 @@
 		BF5D041718416BB2008C5AA9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CE0021BC1C066C1E0079DCA4 /* SalesforceSDKCore.xcodeproj */,
+				83C73F2B1C326CF400FFC730 /* libsqlite3.tbd */,
+				83C73F291C326CE800FFC730 /* libsqlite3.tbd */,
 				BF5D041818416BB2008C5AA9 /* XCTest.framework */,
 				6290CBB6188FE836009790F8 /* Foundation.framework */,
 				6290CBC6188FE837009790F8 /* UIKit.framework */,
@@ -423,6 +374,10 @@
 		C6859EA2029092E104C91782 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
+				831DE6FD175B7C9C001F7317 /* README.markdown */,
+				CC8C138B0E3135C400FBE1E7 /* LICENSE.txt */,
+				CC8C138A0E3135C400FBE1E7 /* CHANGES_AND_TODO_LIST.txt */,
+				CC8C138C0E3135C400FBE1E7 /* CONTRIBUTORS.txt */,
 				C6859EA3029092ED04C91782 /* fmdb.1 */,
 			);
 			name = Documentation;
@@ -438,43 +393,45 @@
 			name = "optional extras";
 			sourceTree = "<group>";
 		};
-		CE0021BD1C066C1E0079DCA4 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				CE0021C51C066C1F0079DCA4 /* SalesforceSDKCore.framework */,
-				CE0021C91C066C1F0079DCA4 /* SalesforceSDKCoreTestApp.app */,
-				CE0021C71C066C1F0079DCA4 /* SalesforceSDKCoreTests.xctest */,
-				CEA884C81C1A24B1008D871B /* libSalesforceSDKCore.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		CE90C0FF1C06A7E300CC660F /* Headers */ = {
+		40A145FF1BE575BD00E5D35E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE90C1041C06A7F800CC660F /* FMDB.h in Headers */,
-				CE90C1051C06A7F800CC660F /* FMDatabase.h in Headers */,
-				CE90C1081C06A7F800CC660F /* FMDatabaseAdditions.h in Headers */,
-				CE90C1091C06A7F800CC660F /* FMDatabasePool.h in Headers */,
-				CE90C1071C06A7F800CC660F /* FMDatabaseQueue.h in Headers */,
-				CE90C1061C06A7F800CC660F /* FMResultSet.h in Headers */,
+				40A146001BE575D000E5D35E /* FMDatabase.h in Headers */,
+				40A146011BE575D600E5D35E /* FMResultSet.h in Headers */,
+				40A146041BE575EB00E5D35E /* FMDatabasePool.h in Headers */,
+				40A146051BE6999800E5D35E /* FMDB.h in Headers */,
+				40A146031BE575E400E5D35E /* FMDatabaseAdditions.h in Headers */,
+				40A146021BE575DD00E5D35E /* FMDatabaseQueue.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CEA884B71C1A24B1008D871B /* Headers */ = {
+		83C73EFB1C326AB000FFC730 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEA884B81C1A24B1008D871B /* FMDB.h in Headers */,
-				CEA884B91C1A24B1008D871B /* FMDatabase.h in Headers */,
-				CEA884BA1C1A24B1008D871B /* FMDatabaseAdditions.h in Headers */,
-				CEA884BB1C1A24B1008D871B /* FMDatabasePool.h in Headers */,
-				CEA884BC1C1A24B1008D871B /* FMDatabaseQueue.h in Headers */,
-				CEA884BD1C1A24B1008D871B /* FMResultSet.h in Headers */,
+				83C73F181C326BAB00FFC730 /* FMDB.h in Headers */,
+				83C73F191C326BAB00FFC730 /* FMDatabase.h in Headers */,
+				83C73F1A1C326BAB00FFC730 /* FMResultSet.h in Headers */,
+				83C73F1B1C326BAB00FFC730 /* FMDatabaseQueue.h in Headers */,
+				83C73F1C1C326BAB00FFC730 /* FMDatabaseAdditions.h in Headers */,
+				83C73F1D1C326BAB00FFC730 /* FMDatabasePool.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83C73F081C326ADA00FFC730 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83C73F231C326BD600FFC730 /* FMDB.h in Headers */,
+				83C73F241C326BD600FFC730 /* FMDatabase.h in Headers */,
+				83C73F251C326BD600FFC730 /* FMResultSet.h in Headers */,
+				83C73F261C326BD600FFC730 /* FMDatabaseQueue.h in Headers */,
+				83C73F271C326BD600FFC730 /* FMDatabaseAdditions.h in Headers */,
+				83C73F281C326BD600FFC730 /* FMDatabasePool.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,7 +441,7 @@
 			files = (
 				EE42910612B42FC30088BD94 /* FMDatabaseAdditions.h in Headers */,
 				EE42910912B42FD00088BD94 /* FMResultSet.h in Headers */,
-				CE6113641C06A01700D5A940 /* FMDatabase.h in Headers */,
+				40A145FE1BE5759400E5D35E /* FMDatabase.h in Headers */,
 				8314AF3318CD73D600EC0E25 /* FMDB.h in Headers */,
 				CC9E4EBA13B31188005F9210 /* FMDatabasePool.h in Headers */,
 				CC47A00F148581E9002CCDAB /* FMDatabaseQueue.h in Headers */,
@@ -501,17 +458,52 @@
 				6290CBB1188FE836009790F8 /* Sources */,
 				6290CBB2188FE836009790F8 /* Frameworks */,
 				6290CBB3188FE836009790F8 /* CopyFiles */,
-				CE90C0FF1C06A7E300CC660F /* Headers */,
+				40A145FF1BE575BD00E5D35E /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				CE0021CD1C066CE90079DCA4 /* PBXTargetDependency */,
 			);
 			name = "FMDB-IOS";
 			productName = "FMDB-IOS";
 			productReference = 6290CBB5188FE836009790F8 /* libFMDB-IOS.a */;
 			productType = "com.apple.product-type.library.static";
+		};
+		83C73EFD1C326AB000FFC730 /* FMDB iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83C73F051C326AB000FFC730 /* Build configuration list for PBXNativeTarget "FMDB iOS" */;
+			buildPhases = (
+				83C73EF91C326AB000FFC730 /* Sources */,
+				83C73EFA1C326AB000FFC730 /* Frameworks */,
+				83C73EFB1C326AB000FFC730 /* Headers */,
+				83C73EFC1C326AB000FFC730 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FMDB iOS";
+			productName = "FMDB iOS";
+			productReference = 83C73EFE1C326AB000FFC730 /* FMDB.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		83C73F0A1C326ADA00FFC730 /* FMDB MacOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83C73F101C326ADB00FFC730 /* Build configuration list for PBXNativeTarget "FMDB MacOS" */;
+			buildPhases = (
+				83C73F061C326ADA00FFC730 /* Sources */,
+				83C73F071C326ADA00FFC730 /* Frameworks */,
+				83C73F081C326ADA00FFC730 /* Headers */,
+				83C73F091C326ADA00FFC730 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FMDB MacOS";
+			productName = "FMDB MacOS";
+			productReference = 83C73F0B1C326ADA00FFC730 /* FMDB.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 		8DD76F960486AA7600D96B5E /* fmdb */ = {
 			isa = PBXNativeTarget;
@@ -524,7 +516,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				CE0021D21C066D080079DCA4 /* PBXTargetDependency */,
 			);
 			name = fmdb;
 			productInstallPath = "$(HOME)/bin";
@@ -543,31 +534,12 @@
 			buildRules = (
 			);
 			dependencies = (
-				BF5D042418416BB2008C5AA9 /* PBXTargetDependency */,
+				83C73F2E1C326D2000FFC730 /* PBXTargetDependency */,
 			);
 			name = Tests;
 			productName = Tests;
 			productReference = BF5D041618416BB2008C5AA9 /* Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		CEA884AA1C1A24B1008D871B /* FMDB-IOS-Static */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CEA884BE1C1A24B1008D871B /* Build configuration list for PBXNativeTarget "FMDB-IOS-Static" */;
-			buildPhases = (
-				CEA884AD1C1A24B1008D871B /* Sources */,
-				CEA884B31C1A24B1008D871B /* Frameworks */,
-				CEA884B61C1A24B1008D871B /* CopyFiles */,
-				CEA884B71C1A24B1008D871B /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CEA884CA1C1A24C1008D871B /* PBXTargetDependency */,
-			);
-			name = "FMDB-IOS-Static";
-			productName = "FMDB-IOS";
-			productReference = CEA884C11C1A24B1008D871B /* libFMDB.a */;
-			productType = "com.apple.product-type.library.static";
 		};
 		EE4290EE12B42F870088BD94 /* FMDB */ = {
 			isa = PBXNativeTarget;
@@ -580,7 +552,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				CE0021D01C066CFF0079DCA4 /* PBXTargetDependency */,
 			);
 			name = FMDB;
 			productName = FMDB;
@@ -593,8 +564,14 @@
 		08FB7793FE84155DC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0710;
 				TargetAttributes = {
+					83C73EFD1C326AB000FFC730 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					83C73F0A1C326ADA00FFC730 = {
+						CreatedOnToolsVersion = 7.2;
+					};
 					BF5D041518416BB2008C5AA9 = {
 						TestTargetID = EE4290EE12B42F870088BD94;
 					};
@@ -613,55 +590,33 @@
 			);
 			mainGroup = 08FB7794FE84155DC02AAC07 /* fmdb */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = CE0021BD1C066C1E0079DCA4 /* Products */;
-					ProjectRef = CE0021BC1C066C1E0079DCA4 /* SalesforceSDKCore.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				8DD76F960486AA7600D96B5E /* fmdb */,
 				EE4290EE12B42F870088BD94 /* FMDB */,
 				BF5D041518416BB2008C5AA9 /* Tests */,
 				6290CBB4188FE836009790F8 /* FMDB-IOS */,
-				CEA884AA1C1A24B1008D871B /* FMDB-IOS-Static */,
+				83C73EFD1C326AB000FFC730 /* FMDB iOS */,
+				83C73F0A1C326ADA00FFC730 /* FMDB MacOS */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		CE0021C51C066C1F0079DCA4 /* SalesforceSDKCore.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SalesforceSDKCore.framework;
-			remoteRef = CE0021C41C066C1F0079DCA4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CE0021C71C066C1F0079DCA4 /* SalesforceSDKCoreTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = SalesforceSDKCoreTests.xctest;
-			remoteRef = CE0021C61C066C1F0079DCA4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CE0021C91C066C1F0079DCA4 /* SalesforceSDKCoreTestApp.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = SalesforceSDKCoreTestApp.app;
-			remoteRef = CE0021C81C066C1F0079DCA4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CEA884C81C1A24B1008D871B /* libSalesforceSDKCore.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libSalesforceSDKCore.a;
-			remoteRef = CEA884C71C1A24B1008D871B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
+		83C73EFC1C326AB000FFC730 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83C73F091C326ADA00FFC730 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BF5D041418416BB2008C5AA9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -682,6 +637,30 @@
 				621721B61892BFE30006691F /* FMDatabasePool.m in Sources */,
 				621721B41892BFE30006691F /* FMDatabaseQueue.m in Sources */,
 				621721B51892BFE30006691F /* FMDatabaseAdditions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83C73EF91C326AB000FFC730 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83C73F131C326B9400FFC730 /* FMDatabase.m in Sources */,
+				83C73F141C326B9400FFC730 /* FMResultSet.m in Sources */,
+				83C73F151C326B9400FFC730 /* FMDatabaseQueue.m in Sources */,
+				83C73F161C326B9400FFC730 /* FMDatabaseAdditions.m in Sources */,
+				83C73F171C326B9400FFC730 /* FMDatabasePool.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83C73F061C326ADA00FFC730 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83C73F1E1C326BC100FFC730 /* FMDatabase.m in Sources */,
+				83C73F1F1C326BC100FFC730 /* FMResultSet.m in Sources */,
+				83C73F201C326BC100FFC730 /* FMDatabaseQueue.m in Sources */,
+				83C73F211C326BC100FFC730 /* FMDatabaseAdditions.m in Sources */,
+				83C73F221C326BC100FFC730 /* FMDatabasePool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -719,18 +698,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CEA884AD1C1A24B1008D871B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CEA884AE1C1A24B1008D871B /* FMResultSet.m in Sources */,
-				CEA884AF1C1A24B1008D871B /* FMDatabase.m in Sources */,
-				CEA884B01C1A24B1008D871B /* FMDatabasePool.m in Sources */,
-				CEA884B11C1A24B1008D871B /* FMDatabaseQueue.m in Sources */,
-				CEA884B21C1A24B1008D871B /* FMDatabaseAdditions.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		EE4290EC12B42F870088BD94 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -746,30 +713,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		BF5D042418416BB2008C5AA9 /* PBXTargetDependency */ = {
+		83C73F2E1C326D2000FFC730 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = EE4290EE12B42F870088BD94 /* FMDB */;
-			targetProxy = BF5D042318416BB2008C5AA9 /* PBXContainerItemProxy */;
-		};
-		CE0021CD1C066CE90079DCA4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SalesforceSDKCore;
-			targetProxy = CE0021CC1C066CE90079DCA4 /* PBXContainerItemProxy */;
-		};
-		CE0021D01C066CFF0079DCA4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SalesforceSDKCore;
-			targetProxy = CE0021CF1C066CFF0079DCA4 /* PBXContainerItemProxy */;
-		};
-		CE0021D21C066D080079DCA4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SalesforceSDKCore;
-			targetProxy = CE0021D11C066D080079DCA4 /* PBXContainerItemProxy */;
-		};
-		CEA884CA1C1A24C1008D871B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SalesforceSDKCoreStatic;
-			targetProxy = CEA884C91C1A24C1008D871B /* PBXContainerItemProxy */;
+			target = 83C73F0A1C326ADA00FFC730 /* FMDB MacOS */;
+			targetProxy = 83C73F2D1C326D2000FFC730 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -835,7 +782,9 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -846,13 +795,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(BUILT_PRODUCTS_DIR)/Headers",
-					"$(TARGET_BUILD_DIR)/Headers",
-					"$(inherited)",
-				);
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx10.9;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -868,18 +812,14 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(BUILT_PRODUCTS_DIR)/Headers",
-					"$(TARGET_BUILD_DIR)/Headers",
-					"$(inherited)",
-				);
-				SDKROOT = macosx10.9;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -906,10 +846,9 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_CFLAGS = "-DSQLITE_HAS_CODEC";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "Headers/${PROJECT_NAME}";
+				PUBLIC_HEADERS_FOLDER_PATH = include/FMDB;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
@@ -933,13 +872,173 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_CFLAGS = "-DSQLITE_HAS_CODEC";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "Headers/${PROJECT_NAME}";
+				PUBLIC_HEADERS_FOLDER_PATH = include/FMDB;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		83C73F031C326AB000FFC730 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = src/fmdb/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.flyingmeat.FMDB-iOS";
+				PRODUCT_NAME = FMDB;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		83C73F041C326AB000FFC730 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = src/fmdb/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.flyingmeat.FMDB-iOS";
+				PRODUCT_NAME = FMDB;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		83C73F111C326ADB00FFC730 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = src/fmdb/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.flyingmeat.FMDB-MacOS";
+				PRODUCT_NAME = FMDB;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		83C73F121C326ADB00FFC730 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = src/fmdb/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.flyingmeat.FMDB-MacOS";
+				PRODUCT_NAME = FMDB;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -978,8 +1077,10 @@
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-lsqlite3";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.grahamdennis.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx10.9;
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -1013,71 +1114,11 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_LDFLAGS = "-lsqlite3";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.grahamdennis.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx10.9;
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
-		CEA884BF1C1A24B1008D871B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				COPY_PHASE_STRIP = NO;
-				DSTROOT = /tmp/FMDB_IOS.dst;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_CFLAGS = "-DSQLITE_HAS_CODEC";
-				OTHER_LDFLAGS = "-ObjC";
-				PRIVATE_HEADERS_FOLDER_PATH = "PrivateHeaders/$(PROJECT_NAME)";
-				PRODUCT_NAME = FMDB;
-				PUBLIC_HEADERS_FOLDER_PATH = "Headers/${PROJECT_NAME}";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		CEA884C01C1A24B1008D871B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				COPY_PHASE_STRIP = YES;
-				DSTROOT = /tmp/FMDB_IOS.dst;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_CFLAGS = "-DSQLITE_HAS_CODEC";
-				OTHER_LDFLAGS = "-ObjC";
-				PRIVATE_HEADERS_FOLDER_PATH = "PrivateHeaders/$(PROJECT_NAME)";
-				PRODUCT_NAME = FMDB;
-				PUBLIC_HEADERS_FOLDER_PATH = "Headers/${PROJECT_NAME}";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -1090,7 +1131,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				PRODUCT_NAME = FMDB;
-				PUBLIC_HEADERS_FOLDER_PATH = "Headers/${PROJECT_NAME}";
+				PUBLIC_HEADERS_FOLDER_PATH = include/FMDB;
 			};
 			name = Debug;
 		};
@@ -1102,7 +1143,7 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				PRODUCT_NAME = FMDB;
-				PUBLIC_HEADERS_FOLDER_PATH = "Headers/${PROJECT_NAME}";
+				PUBLIC_HEADERS_FOLDER_PATH = include/FMDB;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -1137,20 +1178,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		83C73F051C326AB000FFC730 /* Build configuration list for PBXNativeTarget "FMDB iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83C73F031C326AB000FFC730 /* Debug */,
+				83C73F041C326AB000FFC730 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83C73F101C326ADB00FFC730 /* Build configuration list for PBXNativeTarget "FMDB MacOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83C73F111C326ADB00FFC730 /* Debug */,
+				83C73F121C326ADB00FFC730 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BF5D042718416BB2008C5AA9 /* Build configuration list for PBXNativeTarget "Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BF5D042518416BB2008C5AA9 /* Debug */,
 				BF5D042618416BB2008C5AA9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CEA884BE1C1A24B1008D871B /* Build configuration list for PBXNativeTarget "FMDB-IOS-Static" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CEA884BF1C1A24B1008D871B /* Debug */,
-				CEA884C01C1A24B1008D871B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
