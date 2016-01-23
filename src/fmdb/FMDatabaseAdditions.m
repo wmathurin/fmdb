@@ -11,6 +11,12 @@
 #import "TargetConditionals.h"
 #import <SalesforceSDKCore/SFLogger.h>
 
+#if FMDB_SQLITE_STANDALONE
+#import <sqlite3/sqlite3.h>
+#else
+#import <sqlite3.h>
+#endif
+
 @interface FMDatabase (PrivateStuff)
 - (FMResultSet *)executeQuery:(NSString *)sql withArgumentsInArray:(NSArray*)arrayArgs orDictionary:(NSDictionary *)dictionaryArgs orVAList:(va_list)args;
 @end
@@ -120,10 +126,9 @@ return ret;
 }
 
 
-#if SQLITE_VERSION_NUMBER >= 3007017
 
 - (uint32_t)applicationID {
-    
+#if SQLITE_VERSION_NUMBER >= 3007017
     uint32_t r = 0;
     
     FMResultSet *rs = [self executeQuery:@"pragma application_id"];
@@ -135,18 +140,30 @@ return ret;
     [rs close];
     
     return r;
+#else
+    NSString *errorMessage = NSLocalizedString(@"Application ID functions require SQLite 3.7.17", nil);
+    if (self.logsErrors) NSLog(@"%@", errorMessage);
+    return 0;
+#endif
 }
 
 - (void)setApplicationID:(uint32_t)appID {
+#if SQLITE_VERSION_NUMBER >= 3007017
     NSString *query = [NSString stringWithFormat:@"pragma application_id=%d", appID];
     FMResultSet *rs = [self executeQuery:query];
     [rs next];
     [rs close];
+#else
+    NSString *errorMessage = NSLocalizedString(@"Application ID functions require SQLite 3.7.17", nil);
+    if (self.logsErrors) NSLog(@"%@", errorMessage);
+#endif
 }
 
 
 #if TARGET_OS_MAC && !TARGET_OS_IPHONE
+
 - (NSString*)applicationIDString {
+#if SQLITE_VERSION_NUMBER >= 3007017
     NSString *s = NSFileTypeForHFSTypeCode([self applicationID]);
     
     assert([s length] == 6);
@@ -155,20 +172,25 @@ return ret;
     
     
     return s;
-    
+#else
+    NSString *errorMessage = NSLocalizedString(@"Application ID functions require SQLite 3.7.17", nil);
+    if (self.logsErrors) NSLog(@"%@", errorMessage);
+    return nil;
+#endif
 }
 
 - (void)setApplicationIDString:(NSString*)s {
-    
+#if SQLITE_VERSION_NUMBER >= 3007017
     if ([s length] != 4) {
         [self log:SFLogLevelDebug format:@"setApplicationIDString: string passed is not exactly 4 chars long. (was %ld)", [s length]];
     }
     
     [self setApplicationID:NSHFSTypeCodeFromFileType([NSString stringWithFormat:@"'%@'", s])];
-}
-
-
+#else
+    NSString *errorMessage = NSLocalizedString(@"Application ID functions require SQLite 3.7.17", nil);
+    if (self.logsErrors) NSLog(@"%@", errorMessage);
 #endif
+}
 
 #endif
 
