@@ -9,7 +9,7 @@
 #import "FMDatabase.h"
 #import "FMDatabaseAdditions.h"
 #import "TargetConditionals.h"
-#import <SalesforceSDKCore/SFLogger.h>
+#import "SFSDKSmartStoreLogger.h"
 
 #if FMDB_SQLITE_STANDALONE
 #import <sqlite3/sqlite3.h>
@@ -142,7 +142,8 @@ return ret;
     return r;
 #else
     NSString *errorMessage = NSLocalizedString(@"Application ID functions require SQLite 3.7.17", nil);
-    if (self.logsErrors) NSLog(@"%@", errorMessage);
+    if (self.logsErrors)
+        [SFSDKSmartStoreLogger e:[self class] format:@"%@", errorMessage];
     return 0;
 #endif
 }
@@ -155,7 +156,8 @@ return ret;
     [rs close];
 #else
     NSString *errorMessage = NSLocalizedString(@"Application ID functions require SQLite 3.7.17", nil);
-    if (self.logsErrors) NSLog(@"%@", errorMessage);
+    if (self.logsErrors)
+        [SFSDKSmartStoreLogger e:[self class] format:@"%@", errorMessage];
 #endif
 }
 
@@ -174,7 +176,8 @@ return ret;
     return s;
 #else
     NSString *errorMessage = NSLocalizedString(@"Application ID functions require SQLite 3.7.17", nil);
-    if (self.logsErrors) NSLog(@"%@", errorMessage);
+    if (self.logsErrors)
+        [SFSDKSmartStoreLogger e:[self class] format:@"%@", errorMessage];
     return nil;
 #endif
 }
@@ -182,13 +185,14 @@ return ret;
 - (void)setApplicationIDString:(NSString*)s {
 #if SQLITE_VERSION_NUMBER >= 3007017
     if ([s length] != 4) {
-        [self log:SFLogLevelDebug format:@"setApplicationIDString: string passed is not exactly 4 chars long. (was %ld)", [s length]];
+        [SFSDKSmartStoreLogger d:[self class] format:@"setApplicationIDString: string passed is not exactly 4 chars long. (was %ld)", [s length]];
     }
     
     [self setApplicationID:NSHFSTypeCodeFromFileType([NSString stringWithFormat:@"'%@'", s])];
 #else
     NSString *errorMessage = NSLocalizedString(@"Application ID functions require SQLite 3.7.17", nil);
-    if (self.logsErrors) NSLog(@"%@", errorMessage);
+    if (self.logsErrors)
+        [SFSDKSmartStoreLogger e:[self class] format:@"%@", errorMessage];
 #endif
 }
 

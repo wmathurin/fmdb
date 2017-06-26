@@ -8,7 +8,7 @@
 
 #import "FMDatabaseQueue.h"
 #import "FMDatabase.h"
-#import <SalesforceSDKCore/SFLogger.h>
+#import "SFSDKSmartStoreLogger.h"
 
 #if FMDB_SQLITE_STANDALONE
 #import <sqlite3/sqlite3.h>
@@ -73,7 +73,7 @@ static const void * const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey
         BOOL success = [_db open];
 #endif
         if (!success) {
-            [self log:SFLogLevelDebug format:@"Could not create database queue for path %@", aPath];
+            [SFSDKSmartStoreLogger d:[self class] format:@"Could not create database queue for path %@", aPath];
             FMDBRelease(self);
             return 0x00;
         }
@@ -137,7 +137,7 @@ static const void * const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey
         BOOL success = [_db open];
 #endif
         if (!success) {
-            [self log:SFLogLevelDebug format:@"FMDatabaseQueue could not reopen database for path %@", _path];
+            [SFSDKSmartStoreLogger d:[self class] format:@"FMDatabaseQueue could not reopen database for path %@", _path];
             FMDBRelease(_db);
             _db  = 0x00;
             return 0x00;
@@ -161,13 +161,13 @@ static const void * const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey
         block(db);
         
         if ([db hasOpenResultSets]) {
-            [self log:SFLogLevelWarning format:@"Warning: there is at least one open result set around after performing [FMDatabaseQueue inDatabase:]"];
+            [SFSDKSmartStoreLogger w:[self class] format:@"Warning: there is at least one open result set around after performing [FMDatabaseQueue inDatabase:]"];
             
 #if defined(DEBUG) && DEBUG
             NSSet *openSetCopy = FMDBReturnAutoreleased([[db valueForKey:@"_openResultSets"] copy]);
             for (NSValue *rsInWrappedInATastyValueMeal in openSetCopy) {
                 FMResultSet *rs = (FMResultSet *)[rsInWrappedInATastyValueMeal pointerValue];
-                [self log:SFLogLevelDebug format:@"query: '%@'", [rs query]];
+                [SFSDKSmartStoreLogger d:[self class] format:@"query: '%@'", [rs query]];
             }
 #endif
         }
@@ -238,7 +238,8 @@ static const void * const kDispatchQueueSpecificKey = &kDispatchQueueSpecificKey
     return err;
 #else
     NSString *errorMessage = NSLocalizedString(@"Save point functions require SQLite 3.7", nil);
-    if (self.logsErrors) NSLog(@"%@", errorMessage);
+    if (self.logsErrors)
+        [SFSDKSmartStoreLogger e:[self class] format:@"%@", errorMessage];
     return [NSError errorWithDomain:@"FMDatabase" code:0 userInfo:@{NSLocalizedDescriptionKey : errorMessage}];
 #endif
 }

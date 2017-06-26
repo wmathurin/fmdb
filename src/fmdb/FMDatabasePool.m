@@ -14,7 +14,7 @@
 
 #import "FMDatabasePool.h"
 #import "FMDatabase.h"
-#import <SalesforceSDKCore/SFLogger.h>
+#import "SFSDKSmartStoreLogger.h"
 
 @interface FMDatabasePool()
 
@@ -122,9 +122,8 @@
             
             if (self->_maximumNumberOfDatabasesToCreate) {
                 NSUInteger currentCount = [self->_databaseOutPool count] + [self->_databaseInPool count];
-                
                 if (currentCount >= self->_maximumNumberOfDatabasesToCreate) {
-                    [self log:SFLogLevelDebug format:@"Maximum number of databases (%ld) has already been reached!", (long)currentCount];
+                    [SFSDKSmartStoreLogger d:[self class] format:@"Maximum number of databases (%ld) has already been reached!", (long)currentCount];
                     return;
                 }
             }
@@ -156,7 +155,7 @@
             }
         }
         else {
-            [self log:SFLogLevelDebug format:@"Could not open up the database at path %@", self->_path];
+            [SFSDKSmartStoreLogger d:[self class] format:@"Could not open up the database at path %@", self->_path];
             db = 0x00;
         }
     }];
@@ -276,7 +275,8 @@
     return err;
 #else
     NSString *errorMessage = NSLocalizedString(@"Save point functions require SQLite 3.7", nil);
-    if (self.logsErrors) NSLog(@"%@", errorMessage);
+    if (self.logsErrors)
+        [SFSDKSmartStoreLogger e:[self class] format:@"%@", errorMessage];
     return [NSError errorWithDomain:@"FMDatabase" code:0 userInfo:@{NSLocalizedDescriptionKey : errorMessage}];
 #endif
 }

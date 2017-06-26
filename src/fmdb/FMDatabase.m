@@ -1,7 +1,7 @@
 #import "FMDatabase.h"
 #import "unistd.h"
-#import <SalesforceSDKCore/SFLogger.h>
 #import <objc/runtime.h>
+#import "SFSDKSmartStoreLogger.h"
 
 #if FMDB_SQLITE_STANDALONE
 #import <sqlite3/sqlite3.h>
@@ -142,7 +142,7 @@
     
     int err = sqlite3_open([self sqlitePath], (sqlite3**)&_db );
     if(err != SQLITE_OK) {
-        [self log:SFLogLevelError format:@"error opening!: %d", err];
+        [SFSDKSmartStoreLogger e:[self class] format:@"error opening!: %d", err];
         return NO;
     }
     
@@ -166,7 +166,7 @@
     
     int err = sqlite3_open_v2([self sqlitePath], (sqlite3**)&_db, flags, [vfsName UTF8String]);
     if(err != SQLITE_OK) {
-        [self log:SFLogLevelError format:@"error opening!: %d", err];
+        [SFSDKSmartStoreLogger e:[self class] format:@"error opening!: %d", err];
         return NO;
     }
     
@@ -177,7 +177,7 @@
     
     return YES;
 #else
-    NSLog(@"openWithFlags requires SQLite 3.5");
+    [SFSDKSmartStoreLogger d:[self class] format:@"openWithFlags requires SQLite 3.5"];
     return NO;
 #endif
 }
@@ -191,7 +191,7 @@
     if (!_db) {
         return YES;
     }
-    
+
     int  rc;
     BOOL retry;
     BOOL triedFinalizingOpenStatements = NO;
@@ -204,14 +204,14 @@
                 triedFinalizingOpenStatements = YES;
                 sqlite3_stmt *pStmt;
                 while ((pStmt = sqlite3_next_stmt(_db, nil)) !=0) {
-                    [self log:SFLogLevelDebug format:@"Closing leaked statement"];
+                    [SFSDKSmartStoreLogger d:[self class] format:@"Closing leaked statement"];
                     sqlite3_finalize(pStmt);
                     retry = YES;
                 }
             }
         }
         else if (SQLITE_OK != rc) {
-            [self log:SFLogLevelError format:@"error closing!: %d", rc];
+            [SFSDKSmartStoreLogger e:[self class] format:@"error closing!: %d", rc];
         }
     }
     while (retry);
@@ -246,7 +246,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
         int requestedSleepInMillseconds = (int) arc4random_uniform(50) + 50;
         int actualSleepInMilliseconds = sqlite3_sleep(requestedSleepInMillseconds);
         if (actualSleepInMilliseconds != requestedSleepInMillseconds) {
-            [self log:SFLogLevelWarning format:@"WARNING: Requested sleep of %i milliseconds, but SQLite returned %i. Maybe SQLite wasn't built with HAVE_USLEEP=1?", requestedSleepInMillseconds, actualSleepInMilliseconds];
+            [SFSDKSmartStoreLogger w:[self class] format:@"WARNING: Requested sleep of %i milliseconds, but SQLite returned %i. Maybe SQLite wasn't built with HAVE_USLEEP=1?", requestedSleepInMillseconds, actualSleepInMilliseconds];
         }
         return 1;
     }
@@ -280,15 +280,15 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
 // but for folks who don't bother noticing that the interface to FMDatabase changed,
 // we'll still implement the method so they don't get suprise crashes
 - (int)busyRetryTimeout {
-    [self log:SFLogLevelDebug format:@"%s:%d", __FUNCTION__, __LINE__];
-    [self log:SFLogLevelDebug format:@"FMDB: busyRetryTimeout no longer works, please use maxBusyRetryTimeInterval"];
+    [SFSDKSmartStoreLogger d:[self class] format:@"%s:%d", __FUNCTION__, __LINE__];
+    [SFSDKSmartStoreLogger d:[self class] format:@"FMDB: busyRetryTimeout no longer works, please use maxBusyRetryTimeInterval"];
     return -1;
 }
 
 - (void)setBusyRetryTimeout:(int)i {
 #pragma unused(i)
-    [self log:SFLogLevelDebug format:@"%s:%d", __FUNCTION__, __LINE__];
-    [self log:SFLogLevelDebug format:@"FMDB: setBusyRetryTimeout does nothing, please use setMaxBusyRetryTimeInterval:"];
+    [SFSDKSmartStoreLogger d:[self class] format:@"%s:%d", __FUNCTION__, __LINE__];
+    [SFSDKSmartStoreLogger d:[self class] format:@"FMDB: setBusyRetryTimeout does nothing, please use setMaxBusyRetryTimeInterval:"];
 }
 
 #pragma mark Result set functions
@@ -375,8 +375,8 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
     int rc = sqlite3_rekey(_db, [keyData bytes], (int)[keyData length]);
     
     if (rc != SQLITE_OK) {
-        [self log:SFLogLevelError format:@"error on rekey: %d", rc];
-        [self log:SFLogLevelError format:@"%@", [self lastErrorMessage]];
+        [SFSDKSmartStoreLogger e:[self class] format:@"error on rekey: %d", rc];
+        [SFSDKSmartStoreLogger e:[self class] format:@"%@", [self lastErrorMessage]];
     }
     
     return (rc == SQLITE_OK);
@@ -455,7 +455,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
 }
 
 - (void)warnInUse {
-    [self log:SFLogLevelDebug format:@"The FMDatabase %@ is currently in use.", self];
+    [SFSDKSmartStoreLogger d:[self class] format:@"The FMDatabase %@ is currently in use.", self];
     
 #ifndef NS_BLOCK_ASSERTIONS
     if (_crashOnErrors) {
@@ -468,8 +468,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
 - (BOOL)databaseExists {
     
     if (!_db) {
-            
-        [self log:SFLogLevelError format:@"The FMDatabase %@ is not open.", self];
+        [SFSDKSmartStoreLogger e:[self class] format:@"The FMDatabase %@ is not open.", self];
         
 #ifndef NS_BLOCK_ASSERTIONS
         if (_crashOnErrors) {
@@ -762,7 +761,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
     FMResultSet *rs         = 0x00;
     
     if (_traceExecution && sql) {
-        [self log:SFLogLevelDebug format:@"%@ executeQuery: %@", self, sql];
+        [SFSDKSmartStoreLogger d:[self class] format:@"%@ executeQuery: %@", self, sql];
     }
     
     if (_shouldCacheStatements) {
@@ -777,9 +776,9 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
         
         if (SQLITE_OK != rc) {
             if (_logsErrors) {
-                [self log:SFLogLevelError format:@"DB Error: %d \"%@\"", [self lastErrorCode], [self lastErrorMessage]];
-                [self log:SFLogLevelDebug format:@"DB Query: %@", sql];
-                [self log:SFLogLevelDebug format:@"DB Path: %@", _databasePath];
+                [SFSDKSmartStoreLogger e:[self class] format:@"DB Error: %d \"%@\"", [self lastErrorCode], [self lastErrorMessage]];
+                [SFSDKSmartStoreLogger d:[self class] format:@"DB Query: %@", sql];
+                [SFSDKSmartStoreLogger d:[self class] format:@"DB Path: %@", _databasePath];
             }
             
             if (_crashOnErrors) {
@@ -806,7 +805,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
             NSString *parameterName = [[NSString alloc] initWithFormat:@":%@", dictionaryKey];
             
             if (_traceExecution) {
-                [self log:SFLogLevelDebug format:@"%@ = %@", parameterName, [dictionaryArgs objectForKey:dictionaryKey]];
+                [SFSDKSmartStoreLogger d:[self class] format:@"%@ = %@", parameterName, [dictionaryArgs objectForKey:dictionaryKey]];
             }
             
             // Get the index for the parameter name.
@@ -821,7 +820,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
                 idx++;
             }
             else {
-                [self log:SFLogLevelDebug format:@"Could not find index for %@", dictionaryKey];
+                [SFSDKSmartStoreLogger d:[self class] format:@"Could not find index for %@", dictionaryKey];
             }
         }
     }
@@ -842,10 +841,10 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
             
             if (_traceExecution) {
                 if ([obj isKindOfClass:[NSData class]]) {
-                    [self log:SFLogLevelDebug format:@"data: %ld bytes", (unsigned long)[(NSData*)obj length]];
+                    [SFSDKSmartStoreLogger d:[self class] format:@"data: %ld bytes", (unsigned long)[(NSData*)obj length]];
                 }
                 else {
-                    [self log:SFLogLevelDebug format:@"obj: %@", obj];
+                    [SFSDKSmartStoreLogger d:[self class] format:@"obj: %@", obj];
                 }
             }
             
@@ -856,7 +855,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
     }
     
     if (idx != queryCount) {
-        [self log:SFLogLevelError format:@"Error: the bind count is not correct for the # of variables (executeQuery)"];
+        [SFSDKSmartStoreLogger e:[self class] format:@"Error: the bind count is not correct for the # of variables (executeQuery)"];
         sqlite3_finalize(pStmt);
         _isExecutingStatement = NO;
         return nil;
@@ -948,7 +947,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
     FMStatement *cachedStmt  = 0x00;
     
     if (_traceExecution && sql) {
-        [self log:SFLogLevelDebug format:@"%@ executeUpdate: %@", self, sql];
+        [SFSDKSmartStoreLogger d:[self class] format:@"%@ executeUpdate: %@", self, sql];
     }
     
     if (_shouldCacheStatements) {
@@ -962,9 +961,9 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
         
         if (SQLITE_OK != rc) {
             if (_logsErrors) {
-                [self log:SFLogLevelError format:@"DB Error: %d \"%@\"", [self lastErrorCode], [self lastErrorMessage]];
-                [self log:SFLogLevelDebug format:@"DB Query: %@", sql];
-                [self log:SFLogLevelDebug format:@"DB Path: %@", _databasePath];
+                [SFSDKSmartStoreLogger e:[self class] format:@"DB Error: %d \"%@\"", [self lastErrorCode], [self lastErrorMessage]];
+                [SFSDKSmartStoreLogger d:[self class] format:@"DB Query: %@", sql];
+                [SFSDKSmartStoreLogger d:[self class] format:@"DB Path: %@", _databasePath];
             }
             
             if (_crashOnErrors) {
@@ -996,7 +995,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
             NSString *parameterName = [[NSString alloc] initWithFormat:@":%@", dictionaryKey];
             
             if (_traceExecution) {
-                [self log:SFLogLevelDebug format:@"%@ = %@", parameterName, [dictionaryArgs objectForKey:dictionaryKey]];
+                [SFSDKSmartStoreLogger d:[self class] format:@"%@ = %@", parameterName, [dictionaryArgs objectForKey:dictionaryKey]];
             }
             // Get the index for the parameter name.
             int namedIdx = sqlite3_bind_parameter_index(pStmt, [parameterName UTF8String]);
@@ -1014,7 +1013,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
                 NSString *message = [NSString stringWithFormat:@"Could not find index for %@", dictionaryKey];
                 
                 if (_logsErrors) {
-                    [self log:SFLogLevelDebug format:@"%@", message];
+                    [SFSDKSmartStoreLogger d:[self class] format:@"%@", message];
                 }
                 if (outErr) {
                     *outErr = [self errorWithMessage:message];
@@ -1039,10 +1038,10 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
             
             if (_traceExecution) {
                 if ([obj isKindOfClass:[NSData class]]) {
-                    [self log:SFLogLevelDebug format:@"data: %ld bytes", (unsigned long)[(NSData*)obj length]];
+                    [SFSDKSmartStoreLogger d:[self class] format:@"data: %ld bytes", (unsigned long)[(NSData*)obj length]];
                 }
                 else {
-                    [self log:SFLogLevelDebug format:@"obj: %@", obj];
+                    [SFSDKSmartStoreLogger d:[self class] format:@"obj: %@", obj];
                 }
             }
             
@@ -1056,7 +1055,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
     if (idx != queryCount) {
         NSString *message = [NSString stringWithFormat:@"Error: the bind count (%d) is not correct for the # of variables in the query (%d) (%@) (executeUpdate)", idx, queryCount, sql];
         if (_logsErrors) {
-            [self log:SFLogLevelError format:@"%@", message];
+            [SFSDKSmartStoreLogger e:[self class] format:@"%@", message];
         }
         if (outErr) {
             *outErr = [self errorWithMessage:message];
@@ -1079,8 +1078,8 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
     else if (rc == SQLITE_ROW) {
         NSString *message = [NSString stringWithFormat:@"A executeUpdate is being called with a query string '%@'", sql];
         if (_logsErrors) {
-            [self log:SFLogLevelError format:@"%@", message];
-            [self log:SFLogLevelDebug format:@"DB Query: %@", sql];
+            [SFSDKSmartStoreLogger e:[self class] format:@"%@", message];
+            [SFSDKSmartStoreLogger d:[self class] format:@"DB Query: %@", sql];
         }
         if (outErr) {
             *outErr = [self errorWithMessage:message];
@@ -1093,22 +1092,22 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
         
         if (SQLITE_ERROR == rc) {
             if (_logsErrors) {
-                [self log:SFLogLevelError format:@"Error calling sqlite3_step (%d: %s) SQLITE_ERROR", rc, sqlite3_errmsg(_db)];
-                [self log:SFLogLevelDebug format:@"DB Query: %@", sql];
+                [SFSDKSmartStoreLogger e:[self class] format:@"Error calling sqlite3_step (%d: %s) SQLITE_ERROR", rc, sqlite3_errmsg(_db)];
+                [SFSDKSmartStoreLogger d:[self class] format:@"DB Query: %@", sql];
             }
         }
         else if (SQLITE_MISUSE == rc) {
             // uh oh.
             if (_logsErrors) {
-                [self log:SFLogLevelError format:@"Error calling sqlite3_step (%d: %s) SQLITE_MISUSE", rc, sqlite3_errmsg(_db)];
-                [self log:SFLogLevelDebug format:@"DB Query: %@", sql];
+                [SFSDKSmartStoreLogger e:[self class] format:@"Error calling sqlite3_step (%d: %s) SQLITE_MISUSE", rc, sqlite3_errmsg(_db)];
+                [SFSDKSmartStoreLogger d:[self class] format:@"DB Query: %@", sql];
             }
         }
         else {
             // wtf?
             if (_logsErrors) {
-                [self log:SFLogLevelError format:@"Unknown error calling sqlite3_step (%d: %s) eu", rc, sqlite3_errmsg(_db)];
-                [self log:SFLogLevelDebug format:@"DB Query: %@", sql];
+                [SFSDKSmartStoreLogger e:[self class] format:@"Error calling sqlite3_step (%d: %s) eu", rc, sqlite3_errmsg(_db)];
+                [SFSDKSmartStoreLogger d:[self class] format:@"DB Query: %@", sql];
             }
         }
     }
@@ -1138,8 +1137,8 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
     
     if (closeErrorCode != SQLITE_OK) {
         if (_logsErrors) {
-            [self log:SFLogLevelError format:@"Unknown error finalizing or resetting statement (%d: %s)", closeErrorCode, sqlite3_errmsg(_db)];
-            [self log:SFLogLevelDebug format:@"DB Query: %@", sql];
+            [SFSDKSmartStoreLogger e:[self class] format:@"Unknown error finalizing or resetting statement (%d: %s)", closeErrorCode, sqlite3_errmsg(_db)];
+            [SFSDKSmartStoreLogger d:[self class] format:@"DB Query: %@", sql];
         }
     }
     
@@ -1221,7 +1220,7 @@ int FMDBExecuteBulkSQLCallback(void *theBlockAsVoid, int columns, char **values,
     rc = sqlite3_exec([self sqliteHandle], [sql UTF8String], block ? FMDBExecuteBulkSQLCallback : nil, (__bridge void *)(block), &errmsg);
     
     if (errmsg && [self logsErrors]) {
-        [self log:SFLogLevelError format:@"Error inserting batch: %s", errmsg];
+        [SFSDKSmartStoreLogger e:[self class] format:@"Error inserting batch: %s", errmsg];
         sqlite3_free(errmsg);
     }
     
@@ -1313,7 +1312,8 @@ static NSString *FMDBEscapeSavePointName(NSString *savepointName) {
     return [self executeUpdate:sql error:outErr withArgumentsInArray:nil orDictionary:nil orVAList:nil];
 #else
     NSString *errorMessage = NSLocalizedString(@"Save point functions require SQLite 3.7", nil);
-    if (self.logsErrors) NSLog(@"%@", errorMessage);
+    if (self.logsErrors)
+        [SFSDKSmartStoreLogger e:[self class] format:@"%@", errorMessage];
     return NO;
 #endif
 }
@@ -1327,7 +1327,8 @@ static NSString *FMDBEscapeSavePointName(NSString *savepointName) {
     return [self executeUpdate:sql error:outErr withArgumentsInArray:nil orDictionary:nil orVAList:nil];
 #else
     NSString *errorMessage = NSLocalizedString(@"Save point functions require SQLite 3.7", nil);
-    if (self.logsErrors) NSLog(@"%@", errorMessage);
+    if (self.logsErrors)
+        [SFSDKSmartStoreLogger e:[self class] format:@"%@", errorMessage];
     return NO;
 #endif
 }
@@ -1341,7 +1342,8 @@ static NSString *FMDBEscapeSavePointName(NSString *savepointName) {
     return [self executeUpdate:sql error:outErr withArgumentsInArray:nil orDictionary:nil orVAList:nil];
 #else
     NSString *errorMessage = NSLocalizedString(@"Save point functions require SQLite 3.7", nil);
-    if (self.logsErrors) NSLog(@"%@", errorMessage);
+    if (self.logsErrors)
+        [SFSDKSmartStoreLogger e:[self class] format:@"%@", errorMessage];
     return NO;
 #endif
 }
@@ -1373,7 +1375,8 @@ static NSString *FMDBEscapeSavePointName(NSString *savepointName) {
     return err;
 #else
     NSString *errorMessage = NSLocalizedString(@"Save point functions require SQLite 3.7", nil);
-    if (self.logsErrors) NSLog(@"%@", errorMessage);
+    if (self.logsErrors)
+        [SFSDKSmartStoreLogger e:[self class] format:@"%@", errorMessage];
     return [NSError errorWithDomain:@"FMDatabase" code:0 userInfo:@{NSLocalizedDescriptionKey : errorMessage}];
 #endif
 }
